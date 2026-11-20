@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leonida Trophy Guide — GTA VI (PS5)</title>
+<title>GTA VI Trophy Guide &amp; Tracker — All 55 Trophies</title>
+<meta name="description" content="Guide and tracker for the 55 PlayStation 5 trophies of Grand Theft Auto VI: official list, saved progress, roadmap to the platinum, missable flags, and a cited guide for every trophy. Works offline.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -11,67 +12,65 @@
 <header class="hero">
   <div class="hero-inner">
     <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; Unofficial fan guide</p>
-    <h1>Leonida Trophy Guide</h1>
-    <p class="tagline">Every one of the 55 trophies, a checklist that remembers, and a road to the Platinum.</p>
-    <div class="progress-wrap" aria-label="Overall progress">
-      <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
-      <p id="progress-text" class="progress-text">0 of 55 earned</p>
+    <h1>GTA VI Trophy Guide</h1>
+    <p class="lede">All 55 trophies — official names, descriptions and grades, a checklist that saves in your browser, a roadmap to the platinum, and a guide to every trophy with its sources. No network needed.</p>
+    <div class="progress-wrap" id="progress-wrap">
+      <div class="progress-numbers"><span id="progress-count">0 / 55</span><span id="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+      <p class="progress-grades" id="progress-grades"></p>
     </div>
-    <p id="grade-counts" class="grade-counts"></p>
   </div>
 </header>
 
 <main>
-  <section class="panel" id="roadmap-panel" aria-label="Roadmap to the Platinum">
-    <h2>Roadmap to the Platinum</h2>
-    <p class="panel-note">One playthrough is enough — there is no mission replay, but free roam carries on after the story, and all 55 trophies are offline and single-player. Work the stages in order; the 100% checklist (stage 7) only opens up after the story. Expect around 200 hours for the Platinum as a whole. Sources: GTABase, KeenGamer, Push Square.</p>
-    <div class="missable-callout" role="note">
-      <strong>Watch out — the one possibly missable trophy:</strong>
-      <span><b>Positive Mental Attitude</b> (meditate at all 18 spots) is the only trophy GTABase and PowerPyx flag as possibly missable. Do not skip Lucia&rsquo;s balcony meditation in Chapter 1, and meditate at each spot as you find it.</span>
-    </div>
-    <ol id="roadmap" class="roadmap"></ol>
+  <section class="missable-banner" id="missable-banner">
+    <strong>Do this first — the one trophy you can miss.</strong>
+    <p><strong>Positive Mental Attitude</strong>: after the Chapter 1 mission <em>Down to Earth</em>, find Lucia in the kitchen at Jason&rsquo;s house in the morning. She mentions meditating and walks to the balcony — follow her and accept. That balcony meditation may be required for the trophy and it is gone after Chapter 1. The other 18 spots are covered in the guide below.</p>
   </section>
 
-  <section class="panel" id="tracker-panel" aria-label="Trophy tracker">
-    <h2>Trophy tracker</h2>
-    <div class="controls">
-      <label class="search">Search <input id="search" type="search" placeholder="Trophy name or description&hellip;" autocomplete="off"></label>
-      <label>Grade
-        <select id="grade-filter">
-          <option value="all">All grades</option>
-          <option value="platinum">Platinum</option>
-          <option value="gold">Gold</option>
-          <option value="silver">Silver</option>
-          <option value="bronze">Bronze</option>
-        </select>
-      </label>
-      <label>Status
-        <select id="status-filter">
-          <option value="all">All</option>
-          <option value="earned">Earned</option>
-          <option value="unearned">Not earned</option>
-        </select>
-      </label>
-      <label class="spoiler-toggle"><input id="spoiler" type="checkbox" checked> Hide story spoilers</label>
-      <button id="export" type="button">Export progress</button>
-      <label class="import-btn">Import progress <input id="import" type="file" accept="application/json,.json"></label>
-      <button id="reset" type="button">Reset</button>
+  <section class="roadmap" id="roadmap">
+    <h2>Roadmap to the Platinum</h2>
+    <p class="section-note">Seven stages, in order. Story first, then strangers, activities, collectibles and crime — 100% completion last. About 200 hours all in; the story alone is 60–80.</p>
+    <ol class="roadmap-stages" id="roadmap-stages"></ol>
+  </section>
+
+  <section class="tracker" id="tracker">
+    <h2>Trophy Tracker</h2>
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Search a trophy or guide…" aria-label="Search trophies">
+      <div class="kind-chips" id="kind-chips" role="group" aria-label="Filter by kind"></div>
+      <select id="grade-filter" aria-label="Filter by grade">
+        <option value="">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+      <label class="toggle"><input type="checkbox" id="spoiler-toggle" checked> Hide story spoilers</label>
+      <label class="toggle"><input type="checkbox" id="earned-only"> Earned only</label>
+      <div class="toolbar-actions">
+        <button type="button" id="export-btn">Export progress</button>
+        <button type="button" id="import-btn">Import progress</button>
+        <input type="file" id="import-file" accept="application/json,.json" hidden>
+        <button type="button" id="reset-btn">Reset</button>
+      </div>
     </div>
-    <div id="kind-filters" class="kind-filters" role="group" aria-label="Filter by kind"></div>
-    <p id="list-summary" class="list-summary"></p>
-    <div id="trophy-list" class="trophy-list"></div>
+    <p class="result-count" id="result-count"></p>
+    <div class="trophy-grid" id="trophy-grid"></div>
     <p class="empty-note" id="empty-note" hidden>No trophies match these filters.</p>
   </section>
 
-  <section class="panel" aria-label="About this guide">
-    <h2>About this guide</h2>
-    <p>Names, descriptions and grades are as PlayStation publishes them, as listed by Exophase and PSNProfiles — the two agree on every name, description and grade. 28 of the 55 are hidden on PlayStation until earned. Guides are written in our own words for this entry and cite their sources beside each trophy; nothing is copied from another guide. Where no guide has confirmed a method yet, the guide says so instead of guessing.</p>
-    <p>Progress is saved in your browser (localStorage) and never leaves your machine. Export downloads a JSON file you can import back later. The app fetches nothing over the network — it works with the network off.</p>
-    <h3>Sources</h3>
-    <ul id="source-list" class="source-list"></ul>
-    <p class="disclaimer">Unofficial fan guide. Not affiliated with Rockstar Games, Sony or PlayStation. No Rockstar logo, artwork or game screenshots are used here.</p>
+  <section class="sources-note">
+    <h2>Where the guides come from</h2>
+    <p>Every guide is written in our own words for this page. The facts come from the guides named beside each trophy — KeenGamer, Push Square, PowerPyx, GTABase, gtascoop, gamemapa, CryptoGames and the trophy trackers Exophase and PSNProfiles. Where guides still disagree or a method is unconfirmed, the guide says so instead of guessing. Trophy names, descriptions and grades are as PlayStation publishes them.</p>
+    <p class="disclaimer">Unofficial fan guide. Not affiliated with Rockstar Games, Take-Two Interactive or PlayStation. Grand Theft Auto and GTA are trademarks of Take-Two Interactive. No Rockstar artwork or logo is used here.</p>
   </section>
 </main>
+
+<footer>
+  <p>GTA VI Trophy Guide &amp; Tracker — works fully offline. Progress is stored only in your browser.</p>
+</footer>
+
 <script type="module" src="app.js"></script>
 </body>
 </html>

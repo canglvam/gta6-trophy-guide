@@ -1,31 +1,29 @@
-# Leonida Trophy Guide — GTA VI (PS5)
+# GTA VI Trophy Guide & Tracker
 
 [![make.fun](https://make.fun/badge/gta6-trophy-guide-01.svg)](https://make.fun/bounty/gta6-trophy-guide-01)
 [![rank](https://make.fun/badge/gta6-trophy-guide-01/canglvam/gta6-trophy-guide/rank.svg)](https://make.fun/bounty/gta6-trophy-guide-01)
 [![reward](https://make.fun/badge/gta6-trophy-guide-01/canglvam/gta6-trophy-guide/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01)
 
-An offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI, for the [make.fun "Build the best GTA 6 trophy guide" bounty](https://make.fun/bounty/gta6-trophy-guide-01).
+An offline web app that guides and tracks all 55 PlayStation 5 trophies of Grand Theft Auto VI. Built by an AI agent for make.fun's bounty, $250 in USDC.
 
-## What it is
+## What it does
 
-A static web app under `app/` — open `app/index.html` in a desktop browser, no build step, no network. It gives you:
+- **Every trophy, official and complete**: all 55 with their official name, description and grade as PlayStation publishes them (1 platinum, 2 gold, 6 silver, 46 bronze).
+- **Tracker**: a checklist saved in your browser (localStorage), with export to a file and import back.
+- **Filters**: by kind (story, missable, collectibles, activities, strangers, crime, money, secrets, platinum), by grade, and by earned status; plus full-text search.
+- **Spoiler setting**: on by default, it hides the names and descriptions of hidden story trophies until you earn them.
+- **Roadmap to the platinum**: seven stages in order, from the Chapter 1 meditation to 100% completion, each with its earned count.
+- **Missable flags**: the one trophy you can miss — Positive Mental Attitude and its Chapter 1 balcony meditation — is called out at the top and on its card.
+- **A guide to each trophy in our own words**, with its sources named beside it. Where the guides still disagree or a method is unconfirmed, the guide says so instead of guessing.
 
-- **Every trophy** with its official name, description and grade as PlayStation publishes them (1 Platinum, 2 Gold, 6 Silver, 46 Bronze; 28 hidden until earned), plus a guide in our own words that cites its sources beside it.
-- **A checklist that remembers** — progress is saved in the browser (localStorage), with export to a JSON file and import back.
-- **Filters** by kind (story, missable, collectibles, activities, strangers, crime, money, platinum path, online — there are no online trophies), by grade, by earned status, and a text search.
-- **A spoiler setting** that hides the names and descriptions of story trophies until you earn them.
-- **A roadmap to the Platinum** in 7 stages, built from the official descriptions: story first, then strangers, activities, collectibles and counts, crime with your partner, money and loose ends, then 100% completion and the Platinum.
-- **The one missable warning**: Positive Mental Attitude (meditate at all 18 spots) is the only trophy GTABase and PowerPyx flag as possibly missable — do not skip Lucia's balcony meditation in Chapter 1.
+## How to use it
 
-## How it works
+Open `app/index.html` in a desktop browser. That is all — the app is static files and works with the network off. Tick a trophy when it pops; your progress is stored only in your browser.
 
-- `app/index.html` — the page; `app/style.css` — the look (original, no Rockstar artwork); `app/app.js` — the tracker logic.
-- `app/data/trophies.json` — the 55 trophies: official name, description and grade, kind, roadmap stage, missable flag, count target where one applies, the guide, and its sources.
-- `main.ts` — the entry program: copies `app/` and `screenshots/` to `/output` and writes `/output/dossier.json` with the vendored make.fun library.
-- `serve.ts` — a tiny static server for trying the guide locally: `node serve.ts`, then open http://localhost:8080.
+## How it is built
+
+`main.ts` (Node 22) copies `app/` and `screenshots/` to `/output` and writes `/output/dossier.json` with the vendored make.fun library (`vendor/makefun-frontend.ts`, unchanged from the kit). Run it with `MAKEFUN_OUTPUT_DIR=out node main.ts`.
 
 ## Sources
 
-Names, descriptions and grades are as PlayStation publishes them, as listed by Exophase and PSNProfiles (the two agree on every name, description and grade). Guides draw on Push Square, GTABase, KeenGamer, GamesFuze and EGamers.io, and cite them per trophy; where no guide has confirmed a method yet (Personal Best, Actions Speak Louder, Bad Luck I Guess, The Truth Is Out There, Challenging Tank, Capital Offense), the guide says so instead of guessing. Nothing is copied from another guide.
-
-Unofficial fan guide. Not affiliated with Rockstar Games, Sony or PlayStation.
+Guide facts come from KeenGamer, Push Square, PowerPyx, GTABase, gtascoop, gamemapa, CryptoGames, Exophase and PSNProfiles, each cited beside the trophy it supports. Unofficial fan guide — not affiliated with Rockstar Games, Take-Two Interactive or PlayStation, and no Rockstar artwork or logo is used.
