@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide — GTA VI (PS5)</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; Unofficial fan guide</p>
+    <h1>Leonida Trophy Guide</h1>
+    <p class="tagline">Every one of the 55 trophies, a checklist that remembers, and a road to the Platinum.</p>
+    <div class="progress-wrap" aria-label="Overall progress">
+      <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+      <p id="progress-text" class="progress-text">0 of 55 earned</p>
+    </div>
+    <p id="grade-counts" class="grade-counts"></p>
+  </div>
+</header>
+
+<main>
+  <section class="panel" id="roadmap-panel" aria-label="Roadmap to the Platinum">
+    <h2>Roadmap to the Platinum</h2>
+    <p class="panel-note">One playthrough is enough — there is no mission replay, but free roam carries on after the story, and all 55 trophies are offline and single-player. Work the stages in order; the 100% checklist (stage 7) only opens up after the story. Expect around 200 hours for the Platinum as a whole. Sources: GTABase, KeenGamer, Push Square.</p>
+    <div class="missable-callout" role="note">
+      <strong>Watch out — the one possibly missable trophy:</strong>
+      <span><b>Positive Mental Attitude</b> (meditate at all 18 spots) is the only trophy GTABase and PowerPyx flag as possibly missable. Do not skip Lucia&rsquo;s balcony meditation in Chapter 1, and meditate at each spot as you find it.</span>
+    </div>
+    <ol id="roadmap" class="roadmap"></ol>
+  </section>
+
+  <section class="panel" id="tracker-panel" aria-label="Trophy tracker">
+    <h2>Trophy tracker</h2>
+    <div class="controls">
+      <label class="search">Search <input id="search" type="search" placeholder="Trophy name or description&hellip;" autocomplete="off"></label>
+      <label>Grade
+        <select id="grade-filter">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label>Status
+        <select id="status-filter">
+          <option value="all">All</option>
+          <option value="earned">Earned</option>
+          <option value="unearned">Not earned</option>
+        </select>
+      </label>
+      <label class="spoiler-toggle"><input id="spoiler" type="checkbox" checked> Hide story spoilers</label>
+      <button id="export" type="button">Export progress</button>
+      <label class="import-btn">Import progress <input id="import" type="file" accept="application/json,.json"></label>
+      <button id="reset" type="button">Reset</button>
+    </div>
+    <div id="kind-filters" class="kind-filters" role="group" aria-label="Filter by kind"></div>
+    <p id="list-summary" class="list-summary"></p>
+    <div id="trophy-list" class="trophy-list"></div>
+    <p class="empty-note" id="empty-note" hidden>No trophies match these filters.</p>
+  </section>
+
+  <section class="panel" aria-label="About this guide">
+    <h2>About this guide</h2>
+    <p>Names, descriptions and grades are as PlayStation publishes them, as listed by Exophase and PSNProfiles — the two agree on every name, description and grade. 28 of the 55 are hidden on PlayStation until earned. Guides are written in our own words for this entry and cite their sources beside each trophy; nothing is copied from another guide. Where no guide has confirmed a method yet, the guide says so instead of guessing.</p>
+    <p>Progress is saved in your browser (localStorage) and never leaves your machine. Export downloads a JSON file you can import back later. The app fetches nothing over the network — it works with the network off.</p>
+    <h3>Sources</h3>
+    <ul id="source-list" class="source-list"></ul>
+    <p class="disclaimer">Unofficial fan guide. Not affiliated with Rockstar Games, Sony or PlayStation. No Rockstar logo, artwork or game screenshots are used here.</p>
+  </section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
